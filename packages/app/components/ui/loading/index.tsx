@@ -7,7 +7,13 @@ const LoadingOverlay = ({ message }: { message: string }) => (
     style={styles.overlay}
     from={{ opacity: 0 }}
     animate={{ opacity: 1 }}
-    transition={{ type: 'timing', duration: 300 }}
+    transition={{
+      scale: {
+        type: 'timing',
+        duration: 900,
+        loop: false
+      }
+    }}
   >
     <View style={styles.loadingContainer}>
       <Text style={styles.loadingText}>{message}</Text>
