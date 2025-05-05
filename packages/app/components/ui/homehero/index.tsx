@@ -13,7 +13,14 @@ const HomeHero = () => {
         <MotiView
           from={{ translateY: 0 }}
           animate={{ translateY: [-10, 10] }}
-          transition={{ type: 'timing', duration: 2000, repeat: Infinity }}
+          transition={{
+            translateY: {
+              type: 'timing',
+              duration: 2000,
+              repeat: -1, // Use -1 instead of Infinity for repeat
+              repeatReverse: true
+            }
+          }}
           style={styles.imageWrapper}
         >
           <Pressable
