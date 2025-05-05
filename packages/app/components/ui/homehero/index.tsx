@@ -1,8 +1,67 @@
-import { View, Text, StyleSheet, Platform, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Platform, Pressable, TouchableOpacity } from 'react-native';
 import { BlurImage } from 'app/design/image';
 import { SafeAreaView } from 'moti';
 import { MotiView } from 'moti';
 import Features from '../features';
+import { ArrowRight, Plus } from '@nandorojo/heroicons/24/solid';
+import { memo, useCallback } from 'react';
+import { useRouter } from 'solito/router';
+// Tipos
+enum ClickType {
+  REDIRECT,
+  OTHER
+}
+type ButtonProps = {
+  label: string;
+  href?: string;
+  clickType: ClickType,
+  icon?: React.ReactNode;
+  highlight?: boolean;
+  mobile?: boolean;
+  onPress?: () => void;
+  currentPath: string;
+};
+
+// Estilos estáticos
+const BUTTON_CLASSES = {
+  base: "transition-colors rounded-xl bg-[#fdc719] flex flex-row items-center justify-center",
+  mobile: "py-3 px-4 w-full",
+  desktop: "py-2 px-4",
+  active: "bg-zinc-700/50",
+  inactive: "hover:bg-zinc-800/50 active:bg-[#fdc719]/30",
+  highlightMobile: "bg-indigo-600 active:bg-indigo-700",
+  highlightDesktop: "bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800",
+};
+
+// Base butão.
+const Button: React.FC<ButtonProps> = memo(({ icon, href, clickType, label, highlight, mobile = false, onPress, currentPath }) => {
+  const router = useRouter();
+  const isActive = currentPath === href;
+
+  const handlePress = useCallback(() => {
+    clickType === ClickType.REDIRECT ? router.push(href || "") : null;
+    onPress?.();
+  }, [router, href, onPress]);
+
+  return (
+    <Pressable
+      onPress={handlePress}
+      accessibilityRole="link"
+      accessibilityLabel={label}
+      className={`
+        ${BUTTON_CLASSES.base}
+        ${mobile ? BUTTON_CLASSES.mobile : BUTTON_CLASSES.desktop}
+        ${isActive ? BUTTON_CLASSES.active : BUTTON_CLASSES.inactive}
+        ${highlight ? (mobile ? BUTTON_CLASSES.highlightMobile : BUTTON_CLASSES.highlightDesktop) : ""}
+      `}
+    >
+      {icon && <View className="mr-2">{icon}</View>}
+      <Text className={`${isActive ? "font-medium" : "font-normal"} text-white ${mobile ? "text-base" : ""}`}>
+        {label}
+      </Text>
+    </Pressable>
+  );
+});
 
 // Main hero component with bot info and features section
 const HomeHero = () => {
@@ -49,6 +108,11 @@ const HomeHero = () => {
         <Text style={styles.subtitle}>
           Seu bot completo para moderação 🛡️, música 🎧 e diversão 😂 no Discord! Organize, anime e proteja seu servidor com comandos rápidos e fáceis. 🚀
         </Text>
+        {/* Buttons Container */}
+        <View style={styles.btncontainer}>
+          <Button label='Adicionar' icon={<Plus color={'white'} />} currentPath='/' clickType={ClickType.REDIRECT} href={process.env.INVITE_LINK} />
+          <Button label='Dashboard' icon={<ArrowRight color={'white'} />} currentPath='/' clickType={ClickType.REDIRECT} href={process.env.INVITE_LINK} />
+        </View>
 
         {/* Divider */}
         <View style={styles.divider} />
@@ -66,15 +130,27 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F8FAFC',
   },
+
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
   },
+
   imageWrapper: {
     marginBottom: 20,
   },
+
+  btncontainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginVertical: 20,
+    gap: 10, // Add spacing between elements
+  },
+
   imageContainer: {
     borderRadius: 60,
     shadowColor: '#000',
@@ -89,6 +165,7 @@ const styles = StyleSheet.create({
       },
     }),
   },
+
   image: {
     width: 120,
     height: 120,
@@ -96,6 +173,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#FFC817',
   },
+
   title: {
     fontSize: 36,
     fontWeight: '800',
@@ -110,6 +188,7 @@ const styles = StyleSheet.create({
       },
     }),
   },
+
   subtitle: {
     fontSize: 18,
     color: '#4B5563',
@@ -118,6 +197,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 24,
   },
+
   divider: {
     width: '80%',
     height: 1,

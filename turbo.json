@@ -1,8 +1,17 @@
 {
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**"
+      ]
     }
-  }
+  },
+  "globalEnv": [
+    "INVITE_LINK",
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+    "CLERK_SECRET_KEY"
+  ]
 }

@@ -37,6 +37,7 @@
   "packageManager": "yarn@3.4.1",
   "dependencies": {
     "@react-navigation/native": "latest",
+    "dotenv": "latest",
     "patch-package": "^8.0.0",
     "react-native-reanimated": "latest"
   }

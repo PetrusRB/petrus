@@ -7679,6 +7679,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:latest":
+  version: 16.5.0
+  resolution: "dotenv@npm:16.5.0"
+  checksum: 6543fe87b5ddf2d60dd42df6616eec99148a5fc150cb4530fef5bda655db5204a3afa0e6f25f7cd64b20657ace4d79c0ef974bec32fdb462cad18754191e7a90
+  languageName: node
+  linkType: hard
+
 "dotenv@npm:~16.0.3":
   version: 16.0.3
   resolution: "dotenv@npm:16.0.3"
@@ -12155,6 +12162,7 @@ __metadata:
     "@unitools/router-next": ^0.0.1
     app: "*"
     autoprefixer: ^10.4.7
+    dotenv: latest
     eslint-config-next: 13.2.0
     next: 13.4.19
     postcss: latest
@@ -12948,6 +12956,7 @@ __metadata:
     "@react-navigation/native": latest
     "@types/react": ^18.2.21
     "@types/react-native": ^0.72.2
+    dotenv: latest
     eslint: ^8.21.0
     patch-package: ^8.0.0
     prettier: ^3.0.3
