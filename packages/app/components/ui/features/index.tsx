@@ -62,7 +62,13 @@ const FeatureCard = memo(
         <MotiView
           from={{ scale: 1 }}
           animate={{ scale: [1, 1.2, 1] }}
-          transition={{ loop: true, type: 'timing', duration: 900 }}
+          transition={{
+            scale: {
+              type: 'timing',
+              duration: 900,
+              loop: true
+            }
+          }}
         >
           <Text style={styles.cardIcon}>{item.icon}</Text>
         </MotiView>
