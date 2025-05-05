@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
   },
   card: {
     marginBottom: 16,
+    backgroundColor: 'transparent',
     marginRight: 16,
     ...(Platform.OS === 'web' && {
       ':hover': {
