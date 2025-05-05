@@ -62,7 +62,7 @@ const FeatureCard = memo(
         <MotiView
           from={{ scale: 1 }}
           animate={{ scale: [1, 1.2, 1] }}
-          transition={{ loop: true, type: 'timing', duration: 3000 }}
+          transition={{ loop: true, type: 'timing', duration: 900 }}
         >
           <Text style={styles.cardIcon}>{item.icon}</Text>
         </MotiView>
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   cardInner: {
     padding: 20,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'transparent',
     borderRadius: 16,
     borderWidth: 1,
     borderColor: '#E5E7EB',

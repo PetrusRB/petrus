@@ -43,17 +43,7 @@ Petrus foi construído com tecnologias modernas para garantir desempenho e escal
 ## 🚀 Como Começar
 
 1. **Convide o Bot**: Adicione o Petrus ao seu servidor Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id=1220409917282713650&permissions=1103034313814&integration_type=0&scope=bot).
-2. **Configuração**: Use o comando `/help` para explorar todos os recursos e personalizar o bot.
-
-## 🤝 Contribua
-
-Quer ajudar a melhorar o Petrus? Contribuições são bem-vindas! Veja como:
-
-1. Faça um fork do repositório.
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`).
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`).
-4. Envie para o repositório (`git push origin feature/nova-funcionalidade`).
-5. Abra um Pull Request.
+2. **Configuração**: Use o comando `/ajuda` para explorar todos os recursos e personalizar o bot.
 
 ## 📜 Licença
 

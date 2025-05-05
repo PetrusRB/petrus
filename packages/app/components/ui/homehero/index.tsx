@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Platform, Pressable } from 'react-native';
 import { BlurImage } from 'app/design/image';
-import { SafeAreaView } from 'moti/build';
+import { SafeAreaView } from 'moti';
 import { MotiView } from 'moti';
 import Features from '../features';
 
@@ -13,7 +13,7 @@ const HomeHero = () => {
         <MotiView
           from={{ translateY: 0 }}
           animate={{ translateY: [-10, 10] }}
-          transition={{ loop: true, type: 'timing', duration: 2000 }}
+          transition={{ type: 'timing', duration: 2000, repeat: Infinity }}
           style={styles.imageWrapper}
         >
           <Pressable

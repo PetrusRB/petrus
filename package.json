@@ -36,6 +36,7 @@
   ],
   "packageManager": "yarn@3.4.1",
   "dependencies": {
-    "@react-navigation/native": "latest"
+    "@react-navigation/native": "latest",
+    "react-native-reanimated": "latest"
   }
 }

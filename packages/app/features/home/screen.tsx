@@ -8,7 +8,7 @@ const HomeScreen = () => {
       <MotiView
         from={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ type: 'timing', duration: 600 }}
+        transition={{ type: 'timing', duration: 900 }}
         style={styles.content}
         accessible
         accessibilityLabel="Home screen content"
